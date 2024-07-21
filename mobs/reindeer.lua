@@ -48,7 +48,8 @@ creatura.register_mob("animalia:reindeer", {
 	follow = animalia.food_wheat,
 	drops = {
 		{name = "animalia:venison_raw", min = 1, max = 3, chance = 1},
-		{name = "animalia:leather", min = 1, max = 3, chance = 2}
+		{name = "animalia:leather", min = 1, max = 3, chance = 2},
+		animalia.bones,
 	},
 
 	-- Behavior Parameters

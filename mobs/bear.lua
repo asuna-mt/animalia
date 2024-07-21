@@ -49,7 +49,8 @@ creatura.register_mob("animalia:grizzly_bear", {
 	},
 	follow = animalia.food_bear,
 	drops = {
-		{name = "animalia:pelt_bear", min = 1, max = 3, chance = 1}
+		{name = "animalia:pelt_bear", min = 1, max = 3, chance = 1},
+		animalia.bones,
 	},
 	fancy_collide = false,
 

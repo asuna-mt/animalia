@@ -9,6 +9,8 @@ animalia.libri_font_size = storage.libri_font_size
 
 animalia.pets = {}
 
+animalia.bones = minetest.registered_items["bonemeal:bone"] and {name = "bonemeal:bone", min = 1, max = 2, chance = 2} or nil
+
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	animalia.pets[name] = {}
@@ -150,6 +152,7 @@ load_file(path .. "/mobs", "turkey.lua")
 load_file(path .. "/mobs", "tropical_fish.lua")
 load_file(path .. "/mobs", "wolf.lua")
 
+minetest.settings:set_bool("spawn_mobs", minetest.settings:get_bool("asuna.mobs.animals", true))
 if minetest.settings:get_bool("spawn_mobs", true) then
 	dofile(path.."/api/spawning.lua")
 end

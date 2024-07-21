@@ -37,6 +37,9 @@ creatura.register_mob("animalia:fox", {
 		"animalia:porkchop_raw",
 		"animalia:poultry_raw"
 	},
+	drops = {
+		animalia.bones,
+	},
 
 	-- Behavior Parameters
 	is_skittish_mob = true,

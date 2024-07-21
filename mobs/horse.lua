@@ -216,7 +216,8 @@ creatura.register_mob("animalia:horse", {
 	},
 	follow = animalia.food_wheat,
 	drops = {
-		{name = "animalia:leather", min = 1, max = 4, chance = 2}
+		{name = "animalia:leather", min = 1, max = 4, chance = 2},
+		animalia.bones,
 	},
 	fancy_collide = false,
 

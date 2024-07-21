@@ -21,9 +21,9 @@ local pest_spawn_chance = tonumber(minetest.settings:get("animalia_pest_chance")
 
 local predator_spawn_chance = tonumber(minetest.settings:get("animalia_predator_chance")) or 45000
 
--- Get Biomes --
+-- Get Biomes -- already happens via Asuna/biomes.lua
 
-local chicken_biomes = {}
+--[[local chicken_biomes = {}
 
 local frog_biomes = {}
 
@@ -42,7 +42,7 @@ minetest.register_on_mods_loaded(function()
 	insert_all(pig_biomes, animalia.registered_biome_groups["boreal"].biomes)
 	insert_all(frog_biomes, animalia.registered_biome_groups["swamp"].biomes)
 	insert_all(frog_biomes, animalia.registered_biome_groups["tropical"].biomes)
-end)
+end)]]
 
 creatura.register_abm_spawn("animalia:grizzly_bear", {
 	chance = predator_spawn_chance,
@@ -50,8 +50,8 @@ creatura.register_abm_spawn("animalia:grizzly_bear", {
 	max_height = 1024,
 	min_group = 1,
 	max_group = 1,
-	biomes = animalia.registered_biome_groups["boreal"].biomes,
-	nodes = {"group:sand"},
+	biomes = asuna.features.animals.grizzly_bear,
+	nodes = {"group:sand","group:soil","group:snowy"},
 })
 
 creatura.register_abm_spawn("animalia:chicken", {
@@ -62,7 +62,7 @@ creatura.register_abm_spawn("animalia:chicken", {
 	min_group = 3,
 	max_group = 5,
 	spawn_cap = 3,
-	biomes = chicken_biomes,
+	biomes = asuna.features.animals.chicken,
 	nodes = {"group:soil"},
 })
 
@@ -72,6 +72,7 @@ creatura.register_abm_spawn("animalia:cat", {
 	max_height = 1024,
 	min_group = 1,
 	max_group = 2,
+	biomes = asuna.features.animals.cat,
 	nodes = {"group:soil"},
 	neighbors = {"group:wood"}
 })
@@ -84,7 +85,7 @@ creatura.register_abm_spawn("animalia:cow", {
 	min_group = 3,
 	max_group = 4,
 	spawn_cap = 3,
-	biomes = animalia.registered_biome_groups["grassland"].biomes,
+	biomes = asuna.features.animals.cow,
 	nodes = {"group:soil"},
 	neighbors = {"air", "group:grass", "group:flora"}
 })
@@ -95,7 +96,7 @@ creatura.register_abm_spawn("animalia:fox", {
 	max_height = 1024,
 	min_group = 1,
 	max_group = 2,
-	biomes = animalia.registered_biome_groups["boreal"].biomes,
+	biomes = asuna.features.animals.fox,
 	nodes = {"group:soil"},
 })
 
@@ -107,7 +108,7 @@ creatura.register_abm_spawn("animalia:horse", {
 	min_group = 3,
 	max_group = 4,
 	spawn_cap = 3,
-	biomes = animalia.registered_biome_groups["grassland"].biomes,
+	biomes = asuna.features.animals.horse,
 	nodes = {"group:soil"},
 	neighbors = {"air", "group:grass", "group:flora"}
 })
@@ -120,6 +121,7 @@ creatura.register_abm_spawn("animalia:rat", {
 	min_group = 1,
 	max_group = 3,
 	spawn_in_nodes = true,
+	biomes = asuna.features.animals.rat,
 	nodes = {"group:crop"}
 })
 
@@ -131,6 +133,7 @@ creatura.register_abm_spawn("animalia:owl", {
 	min_group = 1,
 	max_group = 1,
 	spawn_cap = 1,
+	biomes = asuna.features.animals.owl,
 	nodes = {"group:leaves"}
 })
 
@@ -141,7 +144,7 @@ creatura.register_abm_spawn("animalia:opossum", {
 	max_height = 1024,
 	min_group = 1,
 	max_group = 2,
-	biomes = animalia.registered_biome_groups["boreal"].biomes,
+	biomes = asuna.features.animals.opossum,
 	nodes = {"group:soil", "group:leaves"}
 })
 
@@ -153,7 +156,7 @@ creatura.register_abm_spawn("animalia:pig", {
 	min_group = 2,
 	max_group = 3,
 	spawn_cap = 3,
-	biomes = pig_biomes,
+	biomes = asuna.features.animals.pig,
 	nodes = {"group:soil"},
 })
 
@@ -165,7 +168,7 @@ creatura.register_abm_spawn("animalia:reindeer", {
 	min_group = 6,
 	max_group = 8,
 	spawn_cap = 3,
-	biomes = animalia.registered_biome_groups["boreal"].biomes,
+	biomes = asuna.features.animals.reindeer,
 	nodes = {"group:soil"},
 })
 
@@ -177,7 +180,7 @@ creatura.register_abm_spawn("animalia:sheep", {
 	min_group = 3,
 	max_group = 6,
 	spawn_cap = 3,
-	biomes = animalia.registered_biome_groups["grassland"].biomes,
+	biomes = asuna.features.animals.sheep,
 	nodes = {"group:soil"},
 	neighbors = {"air", "group:grass", "group:flora"}
 })
@@ -190,7 +193,7 @@ creatura.register_abm_spawn("animalia:turkey", {
 	min_group = 3,
 	max_group = 4,
 	spawn_cap = 3,
-	biomes = animalia.registered_biome_groups["boreal"].biomes,
+	biomes = asuna.features.animals.turkey,
 	nodes = {"group:soil"},
 })
 
@@ -200,7 +203,7 @@ creatura.register_abm_spawn("animalia:wolf", {
 	max_height = 1024,
 	min_group = 2,
 	max_group = 3,
-	biomes = animalia.registered_biome_groups["boreal"].biomes,
+	biomes = asuna.features.animals.wolf,
 	nodes = {"group:soil"},
 })
 
@@ -215,6 +218,7 @@ creatura.register_abm_spawn("animalia:bat", {
 	min_group = 3,
 	max_group = 5,
 	spawn_cap = 6,
+	biomes = asuna.features.animals.bat,
 	nodes = {"group:stone"}
 })
 
@@ -227,6 +231,7 @@ creatura.register_abm_spawn("animalia:song_bird", {
 	min_group = 6,
 	max_group = 12,
 	spawn_cap = 6,
+	biomes = asuna.features.animals.song_bird,
 	nodes = {"group:leaves", "animalia:nest_song_bird"},
 	neighbors = {"group:leaves"}
 })
@@ -262,7 +267,7 @@ creatura.register_abm_spawn("animalia:frog", {
 	max_height = 8,
 	min_group = 1,
 	max_group = 2,
-	neighbors = {"group:water"},
+	--neighbors = {"group:water"},
 	nodes = {"group:soil"}
 })
 
@@ -288,12 +293,14 @@ end)
 
 creatura.register_abm_spawn("animalia:tropical_fish", {
 	chance = ambient_spawn_chance,
-	min_height = -128,
-	max_height = 1,
+	min_height = -40,
+	max_height = -2,
 	min_group = 6,
 	max_group = 12,
-	nodes = {"group:water"},
-	neighbors = {"group:coral"}
+	biomes = asuna.features.animals.tropical_fish,
+	nodes = {"group:water","mapgen_water_source"},
+	neighbors = {"group:coral"},
+	spawn_in_nodes = true,
 })
 
 -- World Gen Spawning
@@ -303,6 +310,8 @@ minetest.register_node("animalia:spawner", {
 	drawtype = "airlike",
 	walkable = false,
 	pointable = false,
+	buildable_to = true,
+	paramtype = "light",
 	sunlight_propagates = true,
 	groups = {oddly_breakable_by_hand = 1, not_in_creative_inventory = 1}
 })
@@ -360,8 +369,10 @@ minetest.register_abm({
 
 			local group_size = random(spawn_definition.min_group or 1, spawn_definition.max_group or 1)
 			local obj
+			local mob_positions
 
 			if group_size > 1 then
+				mob_positions = {}
 				local offset
 				local spawn_pos
 				for _ = 1, group_size do
@@ -373,15 +384,25 @@ minetest.register_abm({
 					}, 3)
 
 					if not creatura.is_pos_moveable(spawn_pos, 0.5, 0.5) then
-						spawn_pos = pos
+						table.insert(mob_positions,pos)
+					else
+						table.insert(mob_positions,spawn_pos)
 					end
-
-					obj = minetest.add_entity(spawn_pos, mob_to_spawn)
-					do_on_spawn(spawn_pos, obj)
 				end
 			else
-				obj = minetest.add_entity(pos, mob_to_spawn)
-				do_on_spawn(pos, obj)
+				mob_positions = { pos }
+			end
+
+			for _,mpos in ipairs(mob_positions) do
+				local node = minetest.get_node(vector.offset(mpos,0,-1,0)).name
+				for _,target in ipairs(spawn_definition.nodes) do
+					if node == target or (target:find("^group:") and minetest.get_item_group(node,target:sub(7)) > 0) then
+						do_on_spawn(mpos, minetest.add_entity(mpos, mob_to_spawn))
+						minetest.log("action","[Animalia] [ABM Spawning] Spawned " .. mob_to_spawn .. " at " .. minetest.pos_to_string(mpos))
+						goto next_mpos
+					end
+				end
+				::next_mpos::
 			end
 		end
 	end

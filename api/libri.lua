@@ -78,9 +78,8 @@ local spawn_biomes = {
 
 
 local function get_spawn_biomes(name)
-	local biome_group = spawn_biomes[name]
-	local biomes = animalia.registered_biome_groups[biome_group].biomes
-	return (#biomes > 0 and biomes) or {"grassland"}
+	local biomes = asuna.features.animals[name] or {}
+	return (#biomes > 0) and biomes or {"grassland"}
 end
 
 local function can_lasso(name)
@@ -416,18 +415,18 @@ local function iterate_libri_images()
 					info.text = "mesh;" .. mesh .. ";" .. textures[info.texture_iter] .. ";-30,225;false;false;0,0;0]"
 				end
 				if info.biome_iter then
-					local biome_group = spawn_biomes[page]
-					local registered_groups = animalia.registered_biome_groups
-					if registered_groups[biome_group].biomes[info.biome_iter + 1] then
+					local mobname = page:split(":")[2]
+					local biomes = asuna.features.animals[mobname] or {}
+					if biomes[info.biome_iter + 1] then
 						info.biome_iter = info.biome_iter + 1
 					else
 						info.biome_iter = 1
 					end
-					local spawn_biome = registered_groups[biome_group].biomes[info.biome_iter] or "grassland"
+					local spawn_biome = biomes[info.biome_iter] or "grassland"
 					if info.element_type == "image" then
 						info.text = biome_cubes[spawn_biome]
 					else
-						info.text = correct_string(spawn_biome)
+						info.text = correct_string(asuna.biomes[spawn_biome].name)
 					end
 				end
 			end

@@ -51,7 +51,8 @@ creatura.register_mob("animalia:turkey", {
 	follow = animalia.food_seeds,
 	drops = {
 		{name = "animalia:poultry_raw", min = 1, max = 4, chance = 1},
-		{name = "animalia:feather", min = 1, max = 3, chance = 2}
+		{name = "animalia:feather", min = 1, max = 3, chance = 2},
+		animalia.bones,
 	},
 
 	-- Animalia Props

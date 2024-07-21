@@ -58,7 +58,8 @@ creatura.register_mob("animalia:pig", {
 	},
 	follow = animalia.food_crops,
 	drops = {
-		{name = "animalia:porkchop_raw", min = 1, max = 3, chance = 1}
+		{name = "animalia:porkchop_raw", min = 1, max = 3, chance = 1},
+		animalia.bones,
 	},
 
 	-- Behavior Parameters

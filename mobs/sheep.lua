@@ -73,7 +73,8 @@ creatura.register_mob("animalia:sheep", {
 	follow = animalia.food_wheat,
 	drops = {
 		{name = "animalia:mutton_raw", min = 1, max = 3, chance = 1},
-		minetest.get_modpath("wool") and {name = "wool:white", min = 1, max = 3, chance = 2} or nil
+		minetest.get_modpath("wool") and {name = "wool:white", min = 1, max = 3, chance = 2} or nil,
+		animalia.bones,
 	},
 
 	-- Behavior Parameters

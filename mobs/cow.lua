@@ -68,7 +68,8 @@ creatura.register_mob("animalia:cow", {
 	follow = animalia.food_wheat,
 	drops = {
 		{name = "animalia:beef_raw", min = 1, max = 3, chance = 1},
-		{name = "animalia:leather", min = 1, max = 3, chance = 2}
+		{name = "animalia:leather", min = 1, max = 3, chance = 2},
+		animalia.bones,
 	},
 	fancy_collide = false,
 
