@@ -299,7 +299,7 @@ creatura.register_abm_spawn("animalia:tropical_fish", {
 	max_group = 12,
 	biomes = asuna.features.animals.tropical_fish,
 	nodes = {"group:water","mapgen_water_source"},
-	neighbors = {"group:coral"},
+	neighbors = {"group:coral","group:sand"},
 	spawn_in_nodes = true,
 })
 
