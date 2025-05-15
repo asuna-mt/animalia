@@ -399,10 +399,9 @@ minetest.register_abm({
 					if node == target or (target:find("^group:") and minetest.get_item_group(node,target:sub(7)) > 0) then
 						do_on_spawn(mpos, minetest.add_entity(mpos, mob_to_spawn))
 						minetest.log("action","[Animalia] [ABM Spawning] Spawned " .. mob_to_spawn .. " at " .. minetest.pos_to_string(mpos))
-						goto next_mpos
+						break
 					end
 				end
-				::next_mpos::
 			end
 		end
 	end
