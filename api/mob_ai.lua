@@ -52,9 +52,13 @@ if farming_enabled then
 			local growth_stage = tonumber(name:sub(-1)) or 1
 			if farming.registered_plants[item_string]
 			or farming.registered_plants[item_name] then
-				def.groups.crop = growth_stage
+				local groups = {}
+				for group,value in pairs(def.groups) do
+					groups[group] = value
+				end
+				groups.crop = growth_stage
+				core.override_item(name,{ groups = groups })
 			end
-			minetest.register_node(":" .. name, def)
 		end
 	end)
 end
